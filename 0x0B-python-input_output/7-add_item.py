@@ -1,16 +1,22 @@
 #!/usr/bin/python3
-"""create"""
-import sys
-import os.path as path
 
+""" Module to add all arguments to a python list
+and then save them to a file """
 
-save1 = __import__('7-save_to_json_file').save_to_json_file
-load1 = __import__('8-load_from_json_file').load_from_json_file
+from sys import argv
+from os import path
 
+save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
+load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
 
-list1 = []
-args = sys.argv[1:]
+name_file = 'add_item.json'
 
-if path.exists("add_item.json"):
-    list1 = load1("add_item.json")  # load return a list
-save1(list1 + args, "add_item.json")  # toma una list y la serializa
+if path.isfile(name_file):
+    arguments = load_from_json_file(name_file)
+else:
+    arguments = []
+
+for i in range(1, len(argv)):
+    arguments.append(argv[i])
+
+save_to_json_file(arguments, name_file)
