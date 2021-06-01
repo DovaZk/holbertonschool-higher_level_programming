@@ -13,4 +13,4 @@ args = sys.argv[1:]
 
 if path.exists("add_item.json"):
     list1 = load1("add_item.json")  # load return a list
-save1(list1 + args, "add_item.json")  # take a list and serialize it
+save1(list1 + args, "add_item.json")  # toma una list y la serializa
