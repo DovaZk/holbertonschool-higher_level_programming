@@ -1,8 +1,9 @@
 #!/usr/bin/python3
-"""print number lines"""
+"""return n characters"""
 
 
-def number_of_lines(filename=""):
+def write_file(filename="", text=""):
     """function"""
-    with open(filename, encoding="utf-8") as file:
-        return len(file.readlines())
+    with open(filename, "w", encoding="utf-8") as file:
+        file.write(text)
+        return len(text)
